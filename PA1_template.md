@@ -23,8 +23,6 @@ data$date <- as.Date(data$date, format = "%Y-%m-%d")
 totalstepsperday <- aggregate(steps ~ date, data = data, FUN = sum)
 # histogram of total number of steps taken each day and store into plot1
 hist(totalstepsperday$steps, breaks = 10)
-dev.copy(png, file = "plot1.png", width = 480, height = 480)
-dev.off()
 # mean and median of total number of steps taken per day
 mean(totalstepsperday$steps)
 median(totalstepsperday$steps)
@@ -35,8 +33,6 @@ median(totalstepsperday$steps)
 # time series plot and store into plot2
 avgstepsperinterval <- aggregate(steps ~ interval, data = data, FUN = mean)
 plot(avgstepsperinterval$interval,avgstepsperinterval$steps, type='l')
-dev.copy(png, file = "plot2.png", width = 480, height = 480)
-dev.off()
 # which interval has the max average steps
 avgstepsperinterval[which.max(avgstepsperinterval$steps),][[1]]
 ```
@@ -56,8 +52,6 @@ sum(is.na(data)) == 0
 newtotalstepsperday <- aggregate(steps ~ date, data = data, FUN = sum)
 # histogram of total number of steps taken each day in new data and store into plot3
 hist(newtotalstepsperday$steps, breaks = 10)
-dev.copy(png, file = "plot3.png", width = 480, height = 480)
-dev.off()
 # mean and median of total number of steps taken per day in new data
 mean(newtotalstepsperday$steps)
 median(newtotalstepsperday$steps)
@@ -75,6 +69,4 @@ avgstepsperintervalweekend <- aggregate(steps ~ interval, data = data[which(data
 par(mfrow=c(2,1))
 plot(avgstepsperintervalweekday$interval,avgstepsperintervalweekday$steps, type='l',main = 'Weekdays',ylab='Steps')
 plot(avgstepsperintervalweekend$interval,avgstepsperintervalweekend$steps, type='l',main = 'Weekends',ylab='Steps')
-dev.copy(png, file = "plot4.png", width = 480, height = 480)
-dev.off()
 ```
