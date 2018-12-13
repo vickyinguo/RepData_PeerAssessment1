@@ -1,8 +1,8 @@
 ---
 title: "Reproducible Research Course Project 1"
-author: "Ying Guo"
-date: "December 12, 2018"
-output: html_document
+output: 
+  html_document:
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
